@@ -8,10 +8,11 @@ use App\Nova\Filters\UserType;
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Metrics\Value;
 use Nemrutco\NovaGlobalFilter\GlobalFilterable;
+use Nemrutco\Filterable\FilterableValue;
 
 class NewUsers extends Value
 {
-    use GlobalFilterable;
+    use GlobalFilterable, FilterableValue;
     /**
      * Calculate the value of the metric.
      *
@@ -20,11 +21,11 @@ class NewUsers extends Value
      */
     public function calculate(NovaRequest $request)
     {
-        $model = $this->globalFiltered(User::class,[
+        $model = $this->globalFiltered(User::class, [
             UserType::class,
             RegisteredDate::class
         ]);
-        
+
         return $this->count($request, $model);
     }
 
@@ -64,5 +65,13 @@ class NewUsers extends Value
     public function uriKey()
     {
         return 'new-users';
+    }
+
+    public function filters()
+    {
+        return [
+            new UserType,
+            (new RegisteredDate)->range()
+        ];
     }
 }

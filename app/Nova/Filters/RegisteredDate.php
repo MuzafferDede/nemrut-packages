@@ -18,9 +18,20 @@ class RegisteredDate extends DateFilter
      */
     public function apply(Request $request, $query, $value)
     {
-        $value = Carbon::parse($value);
-        
-        return $query->where('created_at', '>' ,$value);
+        $value = explode(" to ", $value);
+
+        $value = Carbon::parse($value[0]);
+
+        return $query->where('created_at', '>', $value);
     }
 
+    public function default()
+    {
+        return '2021-08-05';
+    }
+
+    public function range()
+    {
+        return $this->withMeta(['mode' => 'range']);
+    }
 }

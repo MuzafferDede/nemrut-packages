@@ -12,6 +12,7 @@
         "laravel/framework": "^8.40",
         "laravel/nova": "~3.0",
         "laravel/tinker": "^2.5",
+        "nemrutco/nova-filterable-metrics": "dev-master",
         "nemrutco/nova-global-filter": "dev-master"
     },
     "require-dev": {
@@ -42,6 +43,10 @@
         {
             "type": "path",
             "url": "./nova/nova-global-filter"
+        },
+        {
+            "type": "path",
+            "url": "./nova/nova-filterable-metrics"
         }
     ],
     "scripts": {

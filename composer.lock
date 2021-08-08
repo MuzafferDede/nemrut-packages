@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9f44ae6b7b1b023de2b24fbd2a002bc",
+    "content-hash": "3ff404245ae8bb1aab455f780f02a2ae",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2115,6 +2115,46 @@
             },
             "abandoned": "brick/math",
             "time": "2020-01-05T04:49:34+00:00"
+        },
+        {
+            "name": "nemrutco/nova-filterable-metrics",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "./nova/nova-filterable-metrics",
+                "reference": "3a6756a49d7b41791a2ae0686a85a52967d20f13"
+            },
+            "require": {
+                "laravel/nova": ">=2.0",
+                "php": ">=7.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Nemrutco\\Filterable\\CardServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Nemrutco\\Filterable\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Filterable Laravel Nova Metrics.",
+            "keywords": [
+                "card",
+                "filterable",
+                "laravel",
+                "metrics",
+                "nova"
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "nemrutco/nova-global-filter",
@@ -8635,6 +8675,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "nemrutco/nova-filterable-metrics": 20,
         "nemrutco/nova-global-filter": 20
     },
     "prefer-stable": true,
